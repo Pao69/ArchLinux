@@ -1,0 +1,87 @@
+{
+    "layer": "bottom",
+    "position": "bottom",
+    "height": 35,
+    "spacing": 6,
+
+    "modules-left": [
+        "custom/display",
+        "hyprland/outputs",
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "custom/power",
+        "pulseaudio",
+        "network",
+        "tray"
+    ],
+
+    "custom/display": {
+        "format": "󰍹",
+        "tooltip": true,
+        "tooltip-format": "Display Settings",
+        "on-click": "~/.config/hypr/scripts/manage_displays.sh"
+    },
+
+    "hyprland/outputs": {
+        "format": "{name}: {scale}x {current_mode}",
+        "all-outputs": true
+    },
+
+    "hyprland/workspaces": {
+        "format": "{name}: {icon}",
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "default": "",
+            "focused": "",
+            "urgent": "",
+            "special": ""
+        },
+        "on-click": "activate",
+        "all-outputs": true,
+        "persistent_workspaces": {
+            "*": 5
+        }
+    },
+
+    "clock": {
+        "format": "{:%a %b %d  %I:%M %p}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+
+    "custom/power": {
+        "format": "",
+        "tooltip": true,
+        "tooltip-format": "Power Menu",
+        "on-click": "~/.config/hypr/scripts/powermenu.sh"
+    },
+
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": " Muted",
+        "format-icons": {
+            "default": ["", ""]
+        },
+        "on-click": "pavucontrol"
+    },
+
+    "network": {
+        "format-wifi": " {essid}",
+        "format-ethernet": " {ifname}",
+        "format-disconnected": "⚠ Disconnected",
+        "tooltip-format": "<b>Type:</b> {type}\n<b>SSID:</b> {essid}\n<b>IP:</b> {ipaddr}\n<b>Interface:</b> {ifname}",
+        "on-click": "nm-connection-editor"
+    },
+
+    "tray": {
+        "icon-size": 18,
+        "spacing": 8
+    }
+}
