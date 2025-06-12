@@ -1,0 +1,85 @@
+# Linux system files
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# IDE and Editor files
+.idea/
+.vscode/
+.vs/
+*.swp
+*.swo
+.config/Code - OSS/
+.config/Cursor/
+
+# Config and local settings
+.config/dconf/
+.config/discord/
+.config/go/
+.config/trashrc
+.config/user-dirs.dirs
+.config/user-dirs.locale
+.config/yay/
+
+# Package manager directories
+node_modules/
+__pycache__/
+*.py[cod]
+dist/
+build/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+.env.development
+.env.test
+.env.production
+
+# Log files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Personal/sensitive data
+*.pem
+*.key
+*.cert
+credentials.json
+*_credentials.*
+secrets.*
+
+# Cache and temporary files
+.cache/
+tmp/
+temp/
+.tmp/
+.temp/
+
+# Session and history files
+.bash_history
+.zsh_history
+.python_history
+.config/session/
+
+# User-specific files
+.config/kde.org/
+.config/dolphinrc 
