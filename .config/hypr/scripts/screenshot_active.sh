@@ -1,29 +1,29 @@
 #!/bin/bash
 
+# Screenshot directory
 SCREENSHOT_DIR="$HOME/Pictures/Screenshots"
 mkdir -p "$SCREENSHOT_DIR"
-FILENAME="$SCREENSHOT_DIR/$(date +'%Y-%m-%d_%Hh%Mm%Ss_active.png')"
 
+# Generate filename with timestamp
+FILENAME="$SCREENSHOT_DIR/screenshot_$(date +%Y%m%d_%H%M%S).png"
 
     # Get active window geometry
     GEOMETRY=$(hyprctl activewindow -j | jq -r '"\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"')
 
-    if [ -z "$GEOMETRY" ]; then
-        notify-send -u critical "Screenshot Error" "Could not get active window geometry."
+if [ -z "$GEOMETRY" ] || [ "$GEOMETRY" = "0,0 0x0" ]; then
+    notify-send -u critical "Screenshot Failed" "No active window found"
         exit 1
     fi
 
-    # Give a tiny delay
-    sleep 0.5 # <--- ADJUST THIS AS WELL
-
-    grim -g "$GEOMETRY" "$FILENAME"
-
-if [ -f "$FILENAME" ]; then
+# Take the screenshot
+if grim -g "$GEOMETRY" "$FILENAME"; then
+    # Copy to clipboard
     wl-copy < "$FILENAME"
-    notify-send "Screenshot Captured" "Active window saved to\n$FILENAME\nand copied to clipboard."
+    
+    # Send notification
+    notify-send "Screenshot Captured" "Saved as $(basename "$FILENAME")\nCopied to clipboard" -i "$FILENAME"
 else
-    notify-send -u critical "Screenshot Failed" "Could not capture active window."
-    exit 1
+    notify-send -u critical "Screenshot Failed" "Could not capture active window"
 fi
 
 exit 0

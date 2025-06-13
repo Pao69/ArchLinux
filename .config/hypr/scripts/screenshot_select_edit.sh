@@ -1,34 +1,19 @@
 #!/bin/bash
 
+# Screenshot directory
 SCREENSHOT_DIR="$HOME/Pictures/Screenshots"
 mkdir -p "$SCREENSHOT_DIR"
-# We'll save the initial capture to a temporary file for swappy
-TEMP_FILENAME="/tmp/swappy_$(date +%s).png"
 
-# Use slurp to select a region -- MINIMAL OPTIONS
-GEOMETRY=$(slurp -d) # <<< MODIFIED THIS LINE
+# Generate filename with timestamp
+FILENAME="$SCREENSHOT_DIR/screenshot_$(date +%Y%m%d_%H%M%S).png"
 
-if [ -z "$GEOMETRY" ]; then
-    notify-send -u low "Screenshot" "Selection cancelled."
-    exit 1
-fi
-
-# This sleep is still important for the quality of the image grim captures AFTER selection
-sleep 0.5 # Or whatever value worked best for you previously
-
-grim -g "$GEOMETRY" "$TEMP_FILENAME"
-
-if [ -f "$TEMP_FILENAME" ]; then
-    # Open with swappy. Swappy handles saving to desired location & copying.
-    swappy -f "$TEMP_FILENAME"
-    # You can choose to notify here or rely on swappy's implicit actions
-    # notify-send "Screenshot" "Opened selection in Swappy."
+# Take the screenshot with area selection and open in swappy
+if grim -g "$(slurp)" - | swappy -f - -o "$FILENAME"; then
+    # Copy to clipboard
+    wl-copy < "$FILENAME"
+    
+    # Send notification
+    notify-send "Screenshot Captured" "Saved as $(basename "$FILENAME")\nCopied to clipboard" -i "$FILENAME"
 else
-    notify-send -u critical "Screenshot Failed" "Could not capture selection for Swappy."
-    exit 1
+    notify-send -u critical "Screenshot Failed" "Selection cancelled or could not capture screenshot"
 fi
-
-# Optional: remove the temp file after swappy is done if you want
-# rm "$TEMP_FILENAME"
-
-exit 0

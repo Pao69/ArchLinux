@@ -1,3 +1,7 @@
+[General]
+Version=202
+ViewPropsTimestamp=2025,6,12,19,21,58.947
+
 [KFileDialog Settings]
 Places Icons Auto-resize=false
 Places Icons Static Size=22

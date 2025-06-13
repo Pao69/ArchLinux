@@ -1,18 +1,21 @@
 #!/bin/bash
 
+# Screenshot directory
 SCREENSHOT_DIR="$HOME/Pictures/Screenshots"
 mkdir -p "$SCREENSHOT_DIR"
-FILENAME="$SCREENSHOT_DIR/$(date +'%Y-%m-%d_%Hh%Mm%Ss_fullscreen.png')"
 
-# Take screenshot of the entire output (all screens)
-grim "$FILENAME"
+# Generate filename with timestamp
+FILENAME="$SCREENSHOT_DIR/screenshot_$(date +%Y%m%d_%H%M%S).png"
 
-if [ -f "$FILENAME" ]; then
+# Take the screenshot
+if grim "$FILENAME"; then
+    # Copy to clipboard
     wl-copy < "$FILENAME"
-    notify-send "Screenshot Captured" "Fullscreen saved to\n$FILENAME\nand copied to clipboard."
+    
+    # Send notification
+    notify-send "Screenshot Captured" "Saved as $(basename "$FILENAME")\nCopied to clipboard" -i "$FILENAME"
 else
-    notify-send -u critical "Screenshot Failed" "Could not capture fullscreen."
-    exit 1
+    notify-send -u critical "Screenshot Failed" "Could not capture screenshot"
 fi
 
 exit 0
