@@ -79,6 +79,18 @@ temp/
 .zsh_history
 .python_history
 .config/session/
+.local/share/recently-used.xbel
+.local/state/
+.lesshst
+.node_repl_history
+.mysql_history
+.psql_history
+.viminfo
+.vim/.netrwhist
+Session.vim
+.config/session
+.config/sessions/
+.config/plasma-workspace/
 
 # User-specific files
 .config/kde.org/
