@@ -58,3 +58,19 @@ fi
 
 echo "Wallpaper and theme updated."
 notify-send "Theme Updated" "Wallpaper set to $(basename "$SELECTED_WALLPAPER") and theme updated. Kitty reloaded." [2]
+
+# Set wallpaper using pywal
+wal -i /home/shaiyon/.config/Images/ganyuWp.jpg
+
+# Update hyprpaper
+killall hyprpaper
+hyprpaper &
+
+# Update waybar colors
+~/.config/hypr/scripts/update_waybar_colors.sh
+
+# Reload kitty config to apply new colors
+killall -USR1 kitty
+
+# Notify user
+notify-send "Theme Updated" "Applied new wallpaper and color scheme"

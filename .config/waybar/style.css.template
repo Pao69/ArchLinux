@@ -15,7 +15,7 @@ window#waybar {
     padding: 7px;
     margin: 10px 0 5px 10px;
     border-radius: 10px;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(BACKGROUND_RGB, 0.6);
     box-shadow: 0px 0px 2px rgba(0, 0, 0, .6);
 }
 
@@ -23,7 +23,7 @@ window#waybar {
     padding: 7px;
     margin: 10px 0 5px 0;
     border-radius: 10px;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(BACKGROUND_RGB, 0.6);
     box-shadow: 0px 0px 2px rgba(0, 0, 0, .6);
 }
 
@@ -31,13 +31,13 @@ window#waybar {
     padding: 7px;
     margin: 10px 10px 5px 0;
     border-radius: 10px;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(BACKGROUND_RGB, 0.6);
     box-shadow: 0px 0px 2px rgba(0, 0, 0, .6);
 }
 
 tooltip {
-    background: #000000;
-    color: #c6c4c9;
+    background: BACKGROUND;
+    color: FOREGROUND;
 }
 
 #clock:hover,
@@ -51,26 +51,26 @@ tooltip {
 #memory:hover,
 #temperature:hover {
     transition: all .3s ease;
-    color: #877B7D;
+    color: COLOR4;
 }
 
 #custom-notification {
     padding: 0 5px;
     transition: all .3s ease;
-    color: #c6c4c9;
+    color: FOREGROUND;
 }
 
 #clock {
     padding: 0 8px;
     margin: 0 2px;
-    color: #c6c4c9;
+    color: FOREGROUND;
     font-weight: bold;
 }
 
 #custom-pacman {
     padding: 0 5px;
     transition: all .3s ease;
-    color: #c6c4c9;
+    color: FOREGROUND;
 }
 
 #workspaces {
@@ -82,30 +82,30 @@ tooltip {
     all: unset;
     padding: 0 4px;
     margin: 0 2px;
-    color: #8a898c;
+    color: COLOR8;
     transition: all 0.3s ease;
     font-size: 14px;
 }
 
 #workspaces button:hover {
-    color: #c6c4c9;
+    color: FOREGROUND;
 }
 
 #workspaces button.active {
-    color: #877B7D;
-    text-shadow: 0 0 4px #877B7D;
+    color: COLOR4;
+    text-shadow: 0 0 4px COLOR4;
 }
 
 #workspaces button.empty {
-    color: #8a898c;
+    color: COLOR8;
 }
 
 #workspaces button.empty:hover {
-    color: #c6c4c9;
+    color: COLOR7;
 }
 
 #workspaces button.empty.active {
-    color: #877B7D;
+    color: COLOR4;
     border: none;
     text-shadow: 0 0 2px rgba(0, 0, 0, .5);
 }
@@ -113,41 +113,41 @@ tooltip {
 #bluetooth {
     padding: 0 5px;
     transition: all .3s ease;
-    color: #c6c4c9;
+    color: FOREGROUND;
 }
 
 #network {
     padding: 0 8px;
     margin: 0 4px;
-    color: #c6c4c9;
+    color: FOREGROUND;
     border-radius: 8px;
     transition: all 0.3s ease;
 }
 
 #network.disconnected {
-    color: #4B5969;
+    color: COLOR1;
 }
 
 #network.wifi, #network.ethernet {
-    color: #526776;
+    color: COLOR2;
 }
 
 #battery {
     padding: 0 5px;
     transition: all .3s ease;
-    color: #c6c4c9;
+    color: FOREGROUND;
 }
 
 #battery.charging {
-    color: #526776;
+    color: COLOR2;
 }
 
 #battery.warning:not(.charging) {
-    color: #6A6871;
+    color: COLOR3;
 }
 
 #battery.critical:not(.charging) {
-    color: #4B5969;
+    color: COLOR1;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -158,7 +158,7 @@ tooltip {
 #pulseaudio {
     padding: 0 5px;
     transition: all .3s ease;
-    color: #c6c4c9;
+    color: FOREGROUND;
 }
 
 #group-expand {
@@ -168,13 +168,13 @@ tooltip {
 
 #custom-expand {
     padding: 0 5px;
-    color: #8a898c;
+    color: COLOR8;
     text-shadow: 0 0 2px rgba(0, 0, 0, .7);
     transition: all .3s ease;
 }
 
 #custom-expand:hover {
-    color: #c6c4c9;
+    color: COLOR7;
     text-shadow: 0 0 2px rgba(255, 255, 255, .5);
 }
 
@@ -187,7 +187,7 @@ tooltip {
 #temperature {
     padding: 0 5px;
     transition: all .3s ease;
-    color: #c6c4c9;
+    color: FOREGROUND;
 }
 
 #custom-endpoint {
@@ -212,7 +212,7 @@ tooltip {
 
 @keyframes blink {
     to {
-        color: #000000;
+        color: BACKGROUND;
     }
 }
 
@@ -226,52 +226,52 @@ tooltip {
     border-radius: 6px;
     background: transparent;
     transition: all 0.3s ease;
-    color: #c6c4c9;
+    color: FOREGROUND;
 }
 
 #taskbar button:first-child {
-    color: #877B7D;
+    color: COLOR4;
     font-size: 20px;
     padding: 0 8px;
 }
 
 #taskbar button:first-child:hover {
-    background: rgba(135, 123, 125, 0.1);
+    background: rgba(COLOR4_RGB, 0.1);
 }
 
 #taskbar button.active {
-    background: rgba(135, 123, 125, 0.2);
-    color: #877B7D;
+    background: rgba(COLOR4_RGB, 0.2);
+    color: COLOR4;
 }
 
 #taskbar button:hover {
-    background: rgba(135, 123, 125, 0.1);
+    background: rgba(COLOR4_RGB, 0.1);
 }
 
 #taskbar button.minimized {
-    color: #8a898c;
+    color: COLOR8;
 }
 
 #taskbar button.minimized:hover {
-    color: #c6c4c9;
+    color: COLOR7;
 }
 
 #custom-wofi {
     padding: 0 5px;
     transition: all .3s ease;
-    color: #c6c4c9;
+    color: FOREGROUND;
 }
 
 #custom-wofi:hover {
-    color: #877B7D;
+    color: COLOR4;
 }
 
 #custom-power {
     padding: 0 5px;
     transition: all .3s ease;
-    color: #c6c4c9;
+    color: FOREGROUND;
 }
 
 #custom-power:hover {
-    color: #4B5969;
+    color: COLOR1;
 } 

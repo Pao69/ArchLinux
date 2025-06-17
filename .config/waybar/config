@@ -2,7 +2,7 @@
     "layer": "top",
     "position": "top",
     "reload_style_on_change": true,
-    "modules-left": ["custom/notification", "wlr/taskbar"],
+    "modules-left": ["custom/wofi", "custom/notification", "wlr/taskbar"],
     "modules-center": ["hyprland/workspaces"],
     "modules-right": ["group/expand", "network", "bluetooth", "pulseaudio", "battery", "clock", "custom/power"],
 
@@ -167,5 +167,11 @@
         "format": "󰐥",
         "tooltip": false,
         "on-click": "$HOME/.config/hypr/scripts/powermenu.sh"
+    },
+
+    "custom/wofi": {
+        "format": "󰍉",
+        "tooltip": false,
+        "on-click": "wofi --show drun"
     }
 }
