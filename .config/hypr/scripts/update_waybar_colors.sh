@@ -17,7 +17,7 @@ hex_to_rgb() {
 background_rgb=$(hex_to_rgb "$background")
 color4_rgb=$(hex_to_rgb "$color4")
 
-# Read template and replace placeholders
+# Update Waybar style
 sed -e "s/BACKGROUND_RGB/$background_rgb/g" \
     -e "s/COLOR4_RGB/$color4_rgb/g" \
     -e "s/BACKGROUND/$background/g" \
@@ -31,6 +31,21 @@ sed -e "s/BACKGROUND_RGB/$background_rgb/g" \
     -e "s/COLOR7/$color7/g" \
     -e "s/COLOR8/$color8/g" \
     "$HOME/.config/waybar/style.css.template" > "$HOME/.config/waybar/style.css"
+
+# Update Wofi style
+sed -e "s/BACKGROUND_RGB/$background_rgb/g" \
+    -e "s/COLOR4_RGB/$color4_rgb/g" \
+    -e "s/BACKGROUND/$background/g" \
+    -e "s/FOREGROUND/$foreground/g" \
+    -e "s/COLOR1/$color1/g" \
+    -e "s/COLOR2/$color2/g" \
+    -e "s/COLOR3/$color3/g" \
+    -e "s/COLOR4/$color4/g" \
+    -e "s/COLOR5/$color5/g" \
+    -e "s/COLOR6/$color6/g" \
+    -e "s/COLOR7/$color7/g" \
+    -e "s/COLOR8/$color8/g" \
+    "$HOME/.config/wofi/style.css.template" > "$HOME/.config/wofi/style.css"
 
 # Restart Waybar
 killall waybar
