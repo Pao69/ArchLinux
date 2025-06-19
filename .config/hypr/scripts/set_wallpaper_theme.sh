@@ -69,6 +69,14 @@ hyprpaper &
 # Update waybar colors
 ~/.config/hypr/scripts/update_waybar_colors.sh
 
+# Update mako colors
+ln -sf ~/.cache/wal/mako ~/.config/mako/config
+if pgrep mako > /dev/null; then
+    makoctl reload
+else
+    mako &
+fi
+
 # Reload kitty config to apply new colors
 killall -USR1 kitty
 

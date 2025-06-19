@@ -1,0 +1,63 @@
+# Mako configuration file
+
+# Font
+font=JetBrainsMono Nerd Font 10
+format=<b>%s</b>\n%b
+
+# Window Style
+width=350
+height=100
+margin=10
+padding=15
+border-size=2
+border-radius=10
+
+# Colors from pywal
+background-color={background}
+text-color={foreground}
+border-color={color4}
+
+# Progress Bar
+progress-color=over {color2}
+
+# Icons
+icon-path=/usr/share/icons/Papirus-Dark
+max-icon-size=48
+
+# Timeout (ms)
+default-timeout=5000
+
+# Behavior and Position
+layer=overlay
+anchor=top-right
+group-by=summary
+
+# Animation
+max-visible=5
+sort=-time
+
+# Style Classes
+[urgency=low]
+border-color={color2}
+
+[urgency=normal]
+border-color={color4}
+
+[urgency=high]
+border-color={color1}
+default-timeout=0
+
+# Special Styling for Different Apps
+[app-name=spotify]
+border-color={color2}
+format=<b>Now Playing</b>\n%b
+
+[app-name=volume]
+format=<b>Volume</b>\n%b
+group-by=app-name
+anchor=top-center
+
+[app-name=brightness]
+format=<b>Brightness</b>\n%b
+group-by=app-name
+anchor=top-center 
